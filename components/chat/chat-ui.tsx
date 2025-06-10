@@ -78,7 +78,9 @@ export const ChatUI: FC<ChatUIProps> = ({}) => {
   }, [])
 
   const fetchMessages = async () => {
-    const fetchedMessages = await getMessagesByChatId(params.chatid as string)
+    //const fetchedMessages = await getMessagesByChatId(params.chatid as string)
+const fetchedMessages = await getMessagesByChatId(params?.chatid as string)
+
 
     const imagePromises: Promise<MessageImage>[] = fetchedMessages.flatMap(
       message =>

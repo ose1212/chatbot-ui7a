@@ -131,7 +131,25 @@ export const useChatHandler = () => {
           });
         }
 
-
+setChatMessages([
+    ...chatMessages,
+    {
+        message: {
+            role: "user",
+            content: messageContent,
+            sequence_number: chatMessages.length
+        },
+        fileItems: []
+    },
+    {
+        message: {
+            role: "assistant",
+            content: generatedText,
+            sequence_number: chatMessages.length + 1
+        },
+        fileItems: []
+    }
+]);
 
         return; // Early return → skip normal flow
       }

@@ -34,6 +34,9 @@ export default function WorkspaceLayout({ children }: WorkspaceLayoutProps) {
   const workspaceIdParam = params?.workspaceid ?? "";
   const workspaceId = Array.isArray(workspaceIdParam) ? workspaceIdParam[0] : workspaceIdParam;
 
+  // Safe modelParam handling:
+  const modelParam = searchParams?.get("model") ?? "";
+
   const {
     setChatSettings,
     setAssistants,
@@ -72,7 +75,7 @@ export default function WorkspaceLayout({ children }: WorkspaceLayoutProps) {
         await fetchWorkspaceData(workspaceId);
       }
     })();
-  }, [workspaceId, router]); // Added safe dependency array
+  }, [workspaceId, router]); // Safe dependencies
 
   useEffect(() => {
     ;(async () => await fetchWorkspaceData(workspaceId))();
@@ -159,9 +162,7 @@ export default function WorkspaceLayout({ children }: WorkspaceLayoutProps) {
     setModels(modelData.models);
 
     setChatSettings({
-      model: (searchParams.get("model") ||
-        workspace?.default_model ||
-        "gpt-4-1106-preview") as LLMID,
+      model: (modelParam || workspace?.default_model || "gpt-4-1106-preview") as LLMID,
       prompt:
         workspace?.default_prompt ||
         "You are a friendly, helpful AI assistant.",

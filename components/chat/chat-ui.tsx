@@ -155,7 +155,8 @@ const fetchedMessages = await getMessagesByChatId(params?.chatid as string)
   }
 
   const fetchChat = async () => {
-    const chat = await getChatById(params.chatid as string)
+    //const chat = await getChatById(params.chatid as string)
+    const chat = await getChatById(params?.chatid as string)
     if (!chat) return
 
     if (chat.assistant_id) {

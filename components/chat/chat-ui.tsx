@@ -125,7 +125,8 @@ const fetchedMessages = await getMessagesByChatId(params?.chatid as string)
     const uniqueFileItems = messageFileItems.flatMap(item => item.file_items)
     setChatFileItems(uniqueFileItems)
 
-    const chatFiles = await getChatFilesByChatId(params.chatid as string)
+    //const chatFiles = await getChatFilesByChatId(params.chatid as string)
+    const chatFiles = await getChatFilesByChatId(params?.chatid as string)
 
     setChatFiles(
       chatFiles.files.map(file => ({

@@ -131,21 +131,7 @@ export const useChatHandler = () => {
           });
         }
 
-        await handleCreateMessages(
-          chatMessages,
-          currentChat,
-          profile!,
-          models[0], // Use first available model as placeholder
-          messageContent,
-          generatedText,
-          newMessageImages,
-          isRegeneration,
-          [],
-          setChatMessages,
-          setChatFileItems,
-          setChatImages,
-          selectedAssistant
-        );
+
 
         return; // Early return → skip normal flow
       }

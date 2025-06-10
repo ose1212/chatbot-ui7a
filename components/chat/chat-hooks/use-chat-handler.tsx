@@ -137,7 +137,15 @@ setChatMessages([
         message: {
             role: "user",
             content: messageContent,
-            sequence_number: chatMessages.length
+            sequence_number: chatMessages.length,
+            assistant_id: null,
+            chat_id: currentChat ? currentChat.id : "",
+            created_at: new Date().toISOString(),
+            id: crypto.randomUUID(),
+            image_paths: [],
+            model: "gpt-4",
+            updated_at: null,
+            user_id: profile ? profile.user_id : ""
         },
         fileItems: []
     },
@@ -145,7 +153,15 @@ setChatMessages([
         message: {
             role: "assistant",
             content: generatedText,
-            sequence_number: chatMessages.length + 1
+            sequence_number: chatMessages.length + 1,
+            assistant_id: selectedAssistant ? selectedAssistant.id : null,
+            chat_id: currentChat ? currentChat.id : "",
+            created_at: new Date().toISOString(),
+            id: crypto.randomUUID(),
+            image_paths: [],
+            model: "gpt-4",
+            updated_at: null,
+            user_id: profile ? profile.user_id : ""
         },
         fileItems: []
     }

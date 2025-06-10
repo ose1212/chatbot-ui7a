@@ -4,7 +4,7 @@ import { deleteMessagesIncludingAndAfter } from "@/db/messages";
 import { handleCreateChat, handleCreateMessages } from "../chat-helpers";
 import { useRouter } from "next/navigation";
 import { useContext, useEffect, useRef } from "react";
-import { ChatMessage, LLMID, ModelProvider, Tables } from "@/types";
+import { ChatMessage, LLMID, ModelProvider } from "@/types";
 import { LLM_LIST } from "@/lib/models/llm/llm-list";
 
 export const useChatHandler = () => {
